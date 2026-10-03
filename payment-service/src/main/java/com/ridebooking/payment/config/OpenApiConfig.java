@@ -51,8 +51,8 @@ public class OpenApiConfig {
                         .contact(new Contact().name("Thành viên 3 - Module Đặt vé & Thanh toán"))
                         .license(new License().name("MIT")))
                 .servers(List.of(
-                        new Server().url("http://localhost:8084").description("Gọi trực tiếp payment-service"),
-                        new Server().url("http://localhost:8080").description("Qua api-gateway (khuyến nghị)")))
+                        new Server().url("http://localhost:8080").description("Qua api-gateway (khuyến nghị)"),
+                        new Server().url("http://localhost:8084").description("Gọi trực tiếp payment-service")))
                 .addSecurityItem(new SecurityRequirement().addList(securitySchemeName))
                 .components(new Components()
                         .addSecuritySchemes(securitySchemeName,

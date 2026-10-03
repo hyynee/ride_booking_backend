@@ -119,6 +119,11 @@ spring:
             # KHÔNG có route cho driver-service / notification-service: cả hai
             # không có trong requirement.md, không có bảng trong db.md, và đã
             # xoá thư mục rỗng. Thêm route tới chúng sẽ chỉ ra 503 vĩnh viễn.
+          # Gateway và các service đều có CORS filter để hỗ trợ gọi trực tiếp
+          # khi phát triển. Khi request đi qua gateway, cả hai có thể ghi cùng
+          # một response header; dedupe để trình duyệt không từ chối response.
+          default-filters:
+            - DedupeResponseHeader=Access-Control-Allow-Origin Access-Control-Allow-Credentials RETAIN_UNIQUE
           httpclient:
             connect-timeout: 5000
             response-timeout: 30s
